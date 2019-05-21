@@ -7,11 +7,14 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#52676f" "#c60007" "#728a05" "#a57705" "#2075c7" "#c61b6e" "#259185" "#fcf4dc"))
- '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
+ '(custom-enabled-themes (quote (sanityinc-solarized-light)))
  '(custom-safe-themes
    (quote
     ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#e9e2cb")
+ '(package-selected-packages
+   (quote
+    (use-package hydra treemacs-projectile treemacs-icons-dired treemacs wgrep yasnippet yagist whole-line-or-region whitespace-cleanup-mode vc-darcs unfill undo-tree tidy tagedit switch-window smex skewer-less session scss-mode scratch sass-mode regex-tool redshank rainbow-mode rainbow-delimiters pyvenv project-local-variables pip-requirements paredit-everywhere page-break-lines osx-location org-pomodoro org-mac-link org-mac-iCal org-fstree mwe-log-commands multiple-cursors move-dup mmm-mode marmalade markdown-mode magit-svn magit-gh-pulls macrostep lively less-css-mode ledger-mode json-mode js-comint ipretty idomenu ido-completing-read+ ibuffer-vc htmlize hl-sexp hippie-expand-slime highlight-symbol highlight-quoted highlight-indentation highlight-escape-sequences hi2 hayoo guide-key gnuplot gitignore-mode github-clone github-browse-file gitconfig-mode git-timemachine git-messenger git-blame ghci-completion ghc fullframe frame-restore flycheck-ledger flycheck-hdevtools flycheck-haskell find-file-in-project fill-column-indicator expand-region exec-path-from-shell elisp-slime-nav elein eldoc-eval dired-sort dired+ diminish diff-hl dash-at-point darcsum css-eldoc crontab-mode company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cljsbuild-mode cl-lib-highlight bug-reference-github browse-kill-ring auto-compile anzu ag ace-jump-mode ac-slime ac-js2 ac-haskell-process ac-cider)))
  '(safe-local-variable-values (quote ((no-byte-compile t))))
  '(session-use-package t nil (session))
  '(vc-annotate-background nil)
@@ -49,17 +52,20 @@
 
 ;; for ghc mode
 
-(let ((my-cabal-path (expand-file-name "~/Library/Haskell/bin")))
-  (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
-  (add-to-list 'exec-path my-cabal-path))
+;;(let ((my-cabal-path (expand-file-name "~/Library/Haskell/bin")))
+;;  (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
+;;  (add-to-list 'exec-path my-cabal-path))
 
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;;(autoload 'ghc-init "ghc" nil t)
+;;(autoload 'ghc-debug "ghc" nil t)
+;;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 ;; scala mode 2 by Hawstein
-(add-to-list 'load-path "/Users/hawstein/scala-mode2/")
+(add-to-list 'load-path "/Users/Hawstein/Work/EmacsPlugin/scala-mode2/")
 (require 'scala-mode2)
+
+;; fix bug: rectangle appears when scroll to the buffer end
+(set-variable 'visible-bell nil)
 
 ;; show line num
 (global-linum-mode t)
@@ -86,7 +92,7 @@
 ;; delete current line
 (global-set-key (kbd "M-l") 'kill-whole-line)
 
-;; windows operation
+;; window operation
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
